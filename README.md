@@ -1,1 +1,1 @@
-# kernel_xiaomi_sm6150
+# 4.14.323
