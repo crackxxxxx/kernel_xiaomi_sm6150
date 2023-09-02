@@ -636,7 +636,7 @@ void exfat_update_dir_chksum_with_entry_set(struct exfat_entry_set_cache *es)
 	unsigned short chksum = 0;
 	struct exfat_dentry *ep;
 
-	for (i = 0; i < es->num_entries; i++) {
+	for (i = ES_IDX_FILE; i < es->num_entries; i++) {
 		ep = exfat_get_dentry_cached(es, i);
 		chksum = exfat_calc_chksum16(ep, DENTRY_SIZE, chksum,
 					     chksum_type);
