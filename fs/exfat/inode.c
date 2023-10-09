@@ -84,8 +84,8 @@ int __exfat_write_inode(struct inode *inode, int sync)
 		ep2->dentry.stream.start_clu = EXFAT_FREE_CLUSTER;
 	}
 
-	exfat_update_dir_chksum_with_entry_set(es);
-	return exfat_free_dentry_set(es, sync);
+	exfat_update_dir_chksum_with_entry_set(&es);
+	return exfat_put_dentry_set(&es, sync);
 }
 
 int exfat_write_inode(struct inode *inode, struct writeback_control *wbc)

@@ -419,8 +419,8 @@ int exfat_alloc_cluster(struct inode *inode, unsigned int num_alloc,
 			hint_clu = EXFAT_FIRST_CLUSTER;
 
 			if (p_chain->flags == ALLOC_NO_FAT_CHAIN) {
+				if (exfat_chain_cont_cluster(sb, p_chain->dir,
 						p_chain->size)) {
-						num_clusters)) {
 					ret = -EIO;
 					goto free_cluster;
 				}
